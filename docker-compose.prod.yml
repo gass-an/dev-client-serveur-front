@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: anthonygass-juicycheck-front
+    restart: unless-stopped
+    ports:
+      - '${PORT}:5173'
+    environment:
+      NODE_ENV: production
+      VITE_BACKEND_URL: ${VITE_BACKEND_URL}
